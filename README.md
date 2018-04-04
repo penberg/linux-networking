@@ -1,6 +1,6 @@
-# Linux Kernel Networking: Kernel Internals, Network Protocols, and APIs
+# Linux Networking Stack: Kernel Internals and Programming Interfaces
 
-Welcome to the source tree of Linux Kernel Networking book!
+Welcome to the source tree of Linux Networking Stack book!
 
 ## How to Generate the Book
 
