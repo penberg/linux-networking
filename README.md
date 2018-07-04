@@ -20,7 +20,7 @@ Socket buffer (SKB), represented by `struct sk_buff`, represents packet data flo
 
 ## Reception
 
-![Reception](https://raw.githubusercontent.com/penberg/linux-net-book/master/recv.svg Reception)
+![Reception](https://raw.githubusercontent.com/penberg/linux-net-book/master/recv.svg)
 
 When a packet arrives on the NIC RX queue, the device driver either receives an interrupt or notices the new packet via polling. The device driver then allocates a SKB for the packet and passes the SKB to the networking stack. If the device driver received an interrupt, it calls `netif_rx` function to pass the packet and if the driver used polling, it calls the `netif_receive_skb` function. The `netif_rx` function calls the `netif_rx_internal` function, which either calls the `__netif_receive_skb` if RPS is disabled. If RPS is enabled, the `netif_rx_internal` function calculates the CPU that is responsible for the packet using a flow hash (i.e. 4-tuple of source/destination addresses and source/destination ports). The `netif_rx_internal` funcion then calls the `enqueue_to_backlog` function, which places the SKB on a per-CPU backlog queue and wakes up the per-process `RX_NET` softirq.
 
