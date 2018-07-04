@@ -1,4 +1,4 @@
-# Linux Networking Stack
+# Notes on Linux Network Internals
 
 ## Kernel Data Structures
 
@@ -6,13 +6,14 @@
 
 Network devices are represented with the `struct net_device` data structure in the Linux kernel. The following table shows network device operations. It does not, however, define operations for _receiving_ data. The device driver uses the `request_irq` and `netif_napi_add` functions to register device driver functions for handling interrupts and polling, respectively.
 
+#### Network Device Operations (`struct net_device_ops`)
+
 | Operation | Description |
 | --------- | ----------- |
 | `ndo_open` | The network device is transitioning to the up state. |
 | `ndo_close` | The network device is transitioning to the down state. |
 | `ndo_start_xmit` | Start transmission at hardware level. |
 | `ndo_select_queue` | Select transmission queue to use (if device supports multiple TX queues). |
-Network Device Operations (`struct net_device_ops`)
 
 ### Socket Buffers
 
