@@ -40,3 +40,5 @@ When the userspace thread has performed its own processing logic on the received
 ## Links
 
 * https://github.com/Saruspete/LinuxNetworking
+* https://blog.packagecloud.io/eng/2017/02/06/monitoring-tuning-linux-networking-stack-sending-data/
+* https://blog.packagecloud.io/eng/2016/06/22/monitoring-tuning-linux-networking-stack-receiving-data/
